@@ -1,0 +1,1 @@
+<?php /**PATH C:\laragon\www\ProyectoDuoc\resources\views/intranet.blade.php ENDPATH**/ ?>
