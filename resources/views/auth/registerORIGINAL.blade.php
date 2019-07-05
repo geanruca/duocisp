@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Registro de empresas') }}</div>
+                <div class="card-header">{{ __('Registro de usuario') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group row">
-                            <label for="codigo" class="col-md-4 col-form-label text-md-right">{{ __('Codigo') }}</label>
+                            <label for="rut" class="col-md-4 col-form-label text-md-right">{{ __('Rut') }}</label>
                             <div class="col-md-6">
-                                <input id="codigo" type="text" class="form-control @error('codigo') is-invalid @enderror" codigo="codigo" value="{{ old('codigo') }}" required autocomplete="codigo" autofocus>
+                                <input id="rut" type="text" class="form-control @error('rut') is-invalid @enderror" rut="rut" value="{{ old('rut') }}" required autocomplete="rut" autofocus>
                                 @error('rut')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -32,32 +32,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="rut" class="col-md-4 col-form-label text-md-right">{{ __('Rut Empresa') }}</label>
-                            <div class="col-md-6">
-                                <input id="rut" type="text" class="form-control @error('rut') is-invalid @enderror" rut="rut" value="{{ old('rut') }}" required autocomplete="codigo" autofocus>
-                                @error('rut')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Dirección') }}</label>
-                            <div class="col-md-6">
-                                <input id="direccion" type="text" class="form-control @error('direccion') is-invalid @enderror" direccion="direccion" value="{{ old('direccion') }}" required autocomplete="codigo" autofocus>
-                                @error('direccion')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -78,7 +56,7 @@
                         <div class="form-group row">
                             <label for="telefono" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
                             <div class="col-md-6">
-                                <input id="telefono" type="text" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono">
+                                <input id="telefono" type="telefono" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono">
                                 @error('telefono')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
