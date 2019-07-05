@@ -2382,18 +2382,18 @@ mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].init();
       // console.log(empleado);
       // console.log(empleado.id);
       if (confirm('Seguro que quiere eliminar el empleado?')) {
-        axios.post('./empleados/index/' + this.empleado.rut, {
-          'id': empleado.rut,
+        axios.post('./empleados/index/' + this.empleado.id, {
+          'id': empleado.id,
           '_method': 'DELETE'
-        }).then(this.empleados.splice(this.empleados.indexOf(empleado), 1))["catch"](function (error) {
+        }).then(this.empleados.splice(this.empleados.indexOf(empleado), 1), mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].success(response.msg, 'Creado!'))["catch"](function (error) {
           if (error.response.status == 422) {
             mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].error('No ingrese valores vacíos', 'Error');
-          } // else{
-          //     miniToastr.error(error, 'Error');
-          // }
-          // console.log(error)
-          // console.log(error.response.status)
+          } else {
+            mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].error(error, 'Llave foránea detectada');
+          }
 
+          console.log(error);
+          console.log(error.response.status);
         });
       }
     }
@@ -2610,6 +2610,212 @@ mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].init();
         console.log(error);
         console.log(error.response.status);
       });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegistroEmpresa.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RegistroEmpresa.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var mini_toastr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mini-toastr */ "./node_modules/mini-toastr/mini-toastr.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].init();
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('componente montado con éxito');
+  },
+  data: function data() {
+    return {
+      empresas: [],
+      nombre: '',
+      rut: '',
+      categoria: '',
+      empresa: ''
+    };
+  },
+  created: function created() {
+    this.fetch();
+  },
+  methods: {
+    fetch: function fetch() {
+      var _this = this;
+
+      axios.get('./empresas/index').then(function (response) {
+        console.log(response.data.data);
+        _this.empresas = response.data.data; // filteredResources(this.empresas);
+      });
+    },
+    modal: function modal(empresa) {
+      this.empresa = empresa;
+    },
+    update: function update() {
+      axios.post('./empresas/index/' + this.empresa.id, {
+        'nombre': this.empresa.nombre,
+        'rut': this.empresa.nombre,
+        'categoria': this.empresa.nombre,
+        '_method': 'PATCH'
+      }).then(function (response) {
+        mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].success(response.msg, 'Actualizado');
+      })["catch"](function (error) {
+        if (error.response.status == 422) {
+          mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].error('No ingrese valores vacíos', 'Error');
+        } else {
+          mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].error(error, 'Error');
+        }
+
+        console.log(error);
+        console.log(error.response.status);
+      });
+    },
+    create: function create() {
+      var _this2 = this;
+
+      // e.preventDefault();
+      var settings = {
+        headers: {
+          'cache-control': 'no-cache',
+          'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
+          'Accept': 'application/json'
+        }
+      };
+      var formData = new FormData();
+      formData.append('nombre', this.nombre);
+      formData.append('rut', this.rut);
+      formData.append('categoria', this.categoria);
+      axios.post('./empresas/index', formData).then(function (response) {
+        _this2.nombre = '';
+        _this2.rut = '';
+        _this2.categoria = '';
+        mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].success(response.msg, 'Creado!');
+
+        _this2.fetch();
+      });
+    },
+    eliminar: function eliminar(empresa) {
+      // console.log(empresa);
+      // console.log(empresa.id);
+      if (confirm('Seguro que quiere eliminar el empresa?')) {
+        axios.post('./empresas/index/' + this.empresa.id, {
+          'id': empresa.rut,
+          '_method': 'DELETE'
+        }).then(this.empresas.splice(this.empresas.indexOf(empresa), 1))["catch"](function (error) {
+          if (error.response.status == 422) {
+            mini_toastr__WEBPACK_IMPORTED_MODULE_0__["default"].error('No ingrese valores vacíos', 'Error');
+          } // else{
+          //     miniToastr.error(error, 'Error');
+          // }
+          // console.log(error)
+          // console.log(error.response.status)
+
+        });
+      }
     }
   }
 });
@@ -7729,6 +7935,25 @@ exports.push([module.i, "\ndiv.row:nth-child(even) {\n  background-color: #d3def
 /*!**************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Muestras.vue?vue&type=style&index=0&lang=css& ***!
   \**************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\ndiv.row:nth-child(even) {\n  background-color: #d3deff !important;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegistroEmpresa.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RegistroEmpresa.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39064,6 +39289,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegistroEmpresa.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RegistroEmpresa.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./RegistroEmpresa.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegistroEmpresa.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Resultados.vue?vue&type=style&index=0&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Resultados.vue?vue&type=style&index=0&lang=css& ***!
@@ -41522,6 +41777,476 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-xs-4 col-sm-4 col-md-4 col-lg-4" }, [
       _c("b", [_vm._v("Rol:")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegistroEmpresa.vue?vue&type=template&id=07a16b8a&lang=true&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RegistroEmpresa.vue?vue&type=template&id=07a16b8a&lang=true& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
+        _vm._v("nombre")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-xs-6 col-md-6 col-lg-6" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.nombre,
+              expression: "nombre"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text" },
+          domProps: { value: _vm.nombre },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.nombre = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
+        _vm._v("rut")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-xs-6 col-md-6 col-lg-6" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.rut,
+              expression: "rut"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text" },
+          domProps: { value: _vm.rut },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.rut = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
+        _vm._v("direccion")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-xs-6 col-md-6 col-lg-6" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.direccion,
+              expression: "direccion"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text" },
+          domProps: { value: _vm.direccion },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.direccion = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
+        _vm._v("nombre contacto")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-xs-6 col-md-6 col-lg-6" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.nombre_contacto,
+              expression: "nombre_contacto"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text" },
+          domProps: { value: _vm.nombre_contacto },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.nombre_contacto = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
+        _vm._v("rut contacto")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-xs-6 col-md-6 col-lg-6" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.rut_contacto,
+              expression: "rut_contacto"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text" },
+          domProps: { value: _vm.rut_contacto },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.rut_contacto = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
+        _vm._v("direccio contacto")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-xs-6 col-md-6 col-lg-6" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.direccio_contacto,
+              expression: "direccio_contacto"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text" },
+          domProps: { value: _vm.direccio_contacto },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.direccio_contacto = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
+        _vm._v("email")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-xs-6 col-md-6 col-lg-6" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.email,
+              expression: "email"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text" },
+          domProps: { value: _vm.email },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.email = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-3 col-xs-3 col-md-3 col-lg-3" }, [
+        _vm._v("telefono")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-xs-6 col-md-6 col-lg-6" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.telefono,
+              expression: "telefono"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "text" },
+          domProps: { value: _vm.telefono },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.telefono = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "table table-striped" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.empresas, function(empresa) {
+          return _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+              _vm._v(_vm._s(empresa.nombre))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+              _vm._v(_vm._s(empresa.rut))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+              _vm._v(_vm._s(empresa.direccion))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+              _vm._v(_vm._s(empresa.nombre_contacto))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+              _vm._v(_vm._s(empresa.rut_contacto))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+              _vm._v(_vm._s(empresa.direccio_contacto))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+              _vm._v(_vm._s(empresa.email))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+              _vm._v(_vm._s(empresa.telefono))
+            ]),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-xs btn-danger",
+                on: {
+                  click: function($event) {
+                    return _vm.eliminar(empresa)
+                  }
+                }
+              },
+              [_vm._v(" Eliminar ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-xs btn-primary",
+                attrs: { "data-toggle": "modal", "data-target": "#myModal" },
+                on: {
+                  click: function($event) {
+                    return _vm.modal(empresa)
+                  }
+                }
+              },
+              [_vm._v(" Modificar ")]
+            )
+          ])
+        })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "modal fade", attrs: { id: "myModal", role: "dialog" } },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "row" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-xs-8 col-sm-8 col-md-8 col-lg-8" },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.empresa.nombre,
+                          expression: "empresa.nombre"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.empresa.nombre },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.empresa, "nombre", $event.target.value)
+                        }
+                      }
+                    })
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-info btn-lg",
+                  attrs: { type: "button", "data-dismiss": "modal" },
+                  on: {
+                    click: function($event) {
+                      return _vm.update()
+                    }
+                  }
+                },
+                [_vm._v("Guardar")]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+        _c("b", [_vm._v("Nombre")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+        _c("b", [_vm._v("Rut")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+        _c("b", [_vm._v("direccion")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+        _c("b", [_vm._v("nombre contacto")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+        _c("b", [_vm._v("rut contacto")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+        _c("b", [_vm._v("direccio contacto")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+        _c("b", [_vm._v("email")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+        _c("b", [_vm._v("telefono")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-2 col-xs-2 col-md-2 col-lg-2" }, [
+        _c("b", [_vm._v("Acciones")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("×")]
+      ),
+      _vm._v(" "),
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("Editar Usuario")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-xs-4 col-sm-4 col-md-4 col-lg-4" }, [
+      _c("b", [_vm._v("Nombre:")])
     ])
   }
 ]
@@ -54935,6 +55660,7 @@ var map = {
 	"./components/ClienteMuestras.vue": "./resources/js/components/ClienteMuestras.vue",
 	"./components/Empleados.vue": "./resources/js/components/Empleados.vue",
 	"./components/Muestras.vue": "./resources/js/components/Muestras.vue",
+	"./components/RegistroEmpresa.vue": "./resources/js/components/RegistroEmpresa.vue",
 	"./components/Resultados.vue": "./resources/js/components/Resultados.vue",
 	"./components/TiposAnalisis.vue": "./resources/js/components/TiposAnalisis.vue",
 	"./components/Usuarios.vue": "./resources/js/components/Usuarios.vue"
@@ -55002,6 +55728,7 @@ axios.defaults.headers.post['Content-Type'] = 'multipart/form-data'; // import U
 
 
 Vue.component('tipos-analisis', __webpack_require__(/*! ./components/TiposAnalisis.vue */ "./resources/js/components/TiposAnalisis.vue")["default"]);
+Vue.component('registro-empresa', __webpack_require__(/*! ./components/RegistroEmpresa.vue */ "./resources/js/components/RegistroEmpresa.vue")["default"]);
 Vue.component('lista-resultados', __webpack_require__(/*! ./components/Resultados.vue */ "./resources/js/components/Resultados.vue")["default"]);
 Vue.component('lista-usuarios', __webpack_require__(/*! ./components/Usuarios.vue */ "./resources/js/components/Usuarios.vue")["default"]);
 Vue.component('lista-muestras', __webpack_require__(/*! ./components/Muestras.vue */ "./resources/js/components/Muestras.vue")["default"]);
@@ -55510,6 +56237,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Muestras_vue_vue_type_template_id_94bdea1e_lang_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Muestras_vue_vue_type_template_id_94bdea1e_lang_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/RegistroEmpresa.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/RegistroEmpresa.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RegistroEmpresa_vue_vue_type_template_id_07a16b8a_lang_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RegistroEmpresa.vue?vue&type=template&id=07a16b8a&lang=true& */ "./resources/js/components/RegistroEmpresa.vue?vue&type=template&id=07a16b8a&lang=true&");
+/* harmony import */ var _RegistroEmpresa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RegistroEmpresa.vue?vue&type=script&lang=js& */ "./resources/js/components/RegistroEmpresa.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _RegistroEmpresa_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RegistroEmpresa.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/RegistroEmpresa.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _RegistroEmpresa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RegistroEmpresa_vue_vue_type_template_id_07a16b8a_lang_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RegistroEmpresa_vue_vue_type_template_id_07a16b8a_lang_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/RegistroEmpresa.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/RegistroEmpresa.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/RegistroEmpresa.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroEmpresa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./RegistroEmpresa.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegistroEmpresa.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroEmpresa_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/RegistroEmpresa.vue?vue&type=style&index=0&lang=css&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/RegistroEmpresa.vue?vue&type=style&index=0&lang=css& ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroEmpresa_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./RegistroEmpresa.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegistroEmpresa.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroEmpresa_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroEmpresa_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroEmpresa_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroEmpresa_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroEmpresa_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/RegistroEmpresa.vue?vue&type=template&id=07a16b8a&lang=true&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/RegistroEmpresa.vue?vue&type=template&id=07a16b8a&lang=true& ***!
+  \**********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroEmpresa_vue_vue_type_template_id_07a16b8a_lang_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./RegistroEmpresa.vue?vue&type=template&id=07a16b8a&lang=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RegistroEmpresa.vue?vue&type=template&id=07a16b8a&lang=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroEmpresa_vue_vue_type_template_id_07a16b8a_lang_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroEmpresa_vue_vue_type_template_id_07a16b8a_lang_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

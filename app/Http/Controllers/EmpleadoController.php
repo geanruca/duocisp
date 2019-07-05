@@ -40,12 +40,11 @@ class EmpleadoController extends Controller
             'status'=>true,
             'msg'=>'guardado'
         ]);
-
     }
 
-    public function destroy(Request $request, $rut)
+    public function destroy(Request $request, $id)
     {
-        $t=Empleado::where('rut',$request->rut)->first();
+        $t=Empleado::where('id',$request->id)->first();
         $t->delete();
         
         return response()->json([

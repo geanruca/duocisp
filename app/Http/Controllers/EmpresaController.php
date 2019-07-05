@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\Contacto;
+use App\Tipos_analisis;
 use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
@@ -10,63 +12,63 @@ class EmpresaController extends Controller
     
     public function index()
     {
-        //
+        $empresa = Empresa::join('empresas','id','=','contacto.id_empresa')->get();
+        $tipo_analisis = Tipos_analisis::All();
+        return response()->json([
+            "status"         => true,
+            "empresa"        => $empresa
+            ]);
     }
 
-
-    public function create()
+    public function store(Request $request, Empresa $empesa, Contacto $contacto)
     {
-        //
+        $empesa->nombre = $request->nombre;
+        $empesa->rut = $request->rut;
+        $empesa->direccion = $request->direccion;
+        $empesa->save();
+        
+        $contacto->nombre = $request->nombre_contacto;
+        $contacto->rut = $request->rut_contacto;
+        $contacto->direccion = $request->direccion_contacto;
+        $contacto->email = $request->email_contacto;
+        $contacto->telefono_contacto = $request->telefono_contacto;
+        $contacto->save();
+
+        return response()->json([
+            'msg'=>'Guardado'
+        ]);
     }
 
-
-    public function store(Request $request)
+    public function update(Request $request, $id)
     {
-        //
+        $u = Empresa::where('email',$request->email_contacto)->first();
+        $u->nombre = $request->nombre;
+        $u->rut = $request->rut;
+        $u->direccion = $request->direccion;
+        $u->save();
+
+        $c = Contacto::where('id',$request->email)->first();
+        $contacto->nombre = $request->nombre_contacto;
+        $contacto->rut = $request->rut_contacto;
+        $contacto->direccion = $request->direccion_contacto;
+        $contacto->email = $request->email_contacto;
+        $contacto->telefono_contacto = $request->telefono_contacto;
+        $contacto->save();
+
+        return response()->json([
+            'status'=>true,
+            'msg'=>'guardado'
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Empresa $empresa)
+    public function destroy(Request $request, $rut)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Empresa $empresa)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Empresa $empresa)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Empresa $empresa)
-    {
-        //
+        $t=Empresa::where('rut',$request->rut)->first();
+        $t->delete();
+        
+        return response()->json([
+            'status' => true,
+            'msg'    => 'Eliminado'
+        ]);
     }
 }

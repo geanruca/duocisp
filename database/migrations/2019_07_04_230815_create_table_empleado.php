@@ -14,6 +14,7 @@ class CreateTableEmpleado extends Migration
     public function up()
     {
         Schema::create('empleado', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('rut')->unique();
             $table->string('nombre')->nullable();
             $table->string('password')->default('password');
