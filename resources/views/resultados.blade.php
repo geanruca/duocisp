@@ -3,11 +3,11 @@
 @section('title')
 
 @section('content_header')
-    <h1>Analisis</h1>
+    <h1>Resultados</h1>
 @stop
 
 @section('content')
  <div id='app'>
-     <lista-analisis></lista-analisis>
+     <lista-resultados></lista-resultados>
  </div>
 @stop

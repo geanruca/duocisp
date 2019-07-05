@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'DUOC UC',
+    'title' => 'ISP',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>DUOC</b>UC',
+    'logo' => '<b>ISP</b>Proyect',
 
-    'logo_mini' => '<b>D</b>UC',
+    'logo_mini' => '<b>I</b>SP',
 
 
 
@@ -65,7 +65,7 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Tipos de muestra',
+            'text'        => 'Tipos de analisis',
             'url'         => 'tipos_analisis',
             'label_color' => 'success',
         ], 

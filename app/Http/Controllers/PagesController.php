@@ -30,8 +30,8 @@ class PagesController extends Controller
     public function empleados(){
         return view('empleados');
     }
-    public function analisis(){
-        return view('analisis');
+    public function resultados(){
+        return view('resultados');
     }
     public function recepcionista(){
         return view('recepcionista');

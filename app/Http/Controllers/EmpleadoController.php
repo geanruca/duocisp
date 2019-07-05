@@ -10,22 +10,47 @@ class EmpleadoController extends Controller
     
     public function index()
     {
-        $empleados = Empleado::all();
-        return json()->response($empleados);
+        $a = Empleado::All();
+        return response()->json([
+            "status"=>true,
+            "data"=>$a
+            ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Empleado $tipo)
     {
-        //
+        $tipo->nombre = $request->nombre;
+        $tipo->rut = $request->rut;
+        $tipo->categoria = $request->categoria;
+        $tipo->save();
+        return response()->json([
+            'msg'=>'Guardado'
+        ]);
     }
 
-    public function update(Request $request, Empleado $empleado)
+    public function update(Request $request, $id)
     {
-        //
+        $u = Empleado::where('id',$id)->first();
+        $u->nombre = $request->nombre;
+        $u->rut = $request->rut;
+        $u->categoria = $request->categoria;
+        $u->save();
+
+        return response()->json([
+            'status'=>true,
+            'msg'=>'guardado'
+        ]);
+
     }
 
-    public function destroy(Empleado $empleado)
+    public function destroy(Request $request, $rut)
     {
-        //
+        $t=Empleado::where('rut',$request->rut)->first();
+        $t->delete();
+        
+        return response()->json([
+            'status' => true,
+            'msg'    => 'Eliminado'
+        ]);
     }
 }

@@ -28,16 +28,18 @@ axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
 // import Usuarios from './components/Usuarios.vue';
 import TiposAnalisis from './components/TiposAnalisis.vue';
 Vue.component('tipos-analisis', require('./components/TiposAnalisis.vue').default);
-Vue.component('usuarios', require('./components/Usuarios.vue').default);
-Vue.component('muestras', require('./components/Muestras.vue').default);
-Vue.component('empleados', require('./components/Empleados.vue').default);
-Vue.component('analisis', require('./components/Analisis.vue').default);
-Vue.component('recepcionista', require('./components/Recepcionista.vue').default);
-Vue.component('cliente', require('./components/Cliente.vue').default);
-Vue.component('cliente-muestras', require('./components/ClienteMuestras.vue').default);
-Vue.component('tecnico', require('./components/Tecnico.vue').default);
-Vue.component('tecnico-muestras', require('./components/TecnicoMuestras.vue').default);
+Vue.component('lista-resultados', require('./components/Resultados.vue').default);
+Vue.component('lista-usuarios', require('./components/Usuarios.vue').default);
+Vue.component('lista-muestras', require('./components/Muestras.vue').default);
+Vue.component('lista-analisis', require('./components/Analisis.vue').default);
 
+// Vue.component('lista-recepcionista', require('./components/Recepcionista.vue').default);
+// Vue.component('lista-cliente', require('./components/Cliente.vue').default);
+// Vue.component('cliente-muestras', require('./components/ClienteMuestras.vue').default);
+// Vue.component('lista-tecnico', require('./components/Tecnico.vue').default);
+// Vue.component('tecnico-muestras', require('./components/TecnicoMuestras.vue').default);
+
+Vue.component('lista-empleados', require('./components/Empleados.vue').default);
 
 const app = new Vue({
     el: '#app',

@@ -17,7 +17,7 @@ class CreateTableEmpresa extends Migration
             $table->bigIncrements('id');
             $table->string('rut')->unique();
             $table->string('nombre');
-            $table->string('password');
+            $table->string('password')->default('password');
             $table->string('direccion');
             $table->timestamps();
         });

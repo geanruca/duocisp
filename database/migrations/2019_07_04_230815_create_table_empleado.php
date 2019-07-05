@@ -16,7 +16,7 @@ class CreateTableEmpleado extends Migration
         Schema::create('empleado', function (Blueprint $table) {
             $table->string('rut')->unique();
             $table->string('nombre')->nullable();
-            $table->string('password');
+            $table->string('password')->default('password');
             $table->string('categoria');
             $table->timestamps();
         });
