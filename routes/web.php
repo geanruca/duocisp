@@ -14,8 +14,14 @@ Route::get('/loginE', function(){
 });
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('registro/particulares','PagesController@registro_de_particulares');
-Route::get('registro/empresas','PagesController@registro_de_empresas');
+Route::get('/particulares', function(){
+    return view('registro.particulares');
+});
+Route::get('/empresas', function(){
+    return view('registro.empresas');
+});
+/* Route::get('registro/particulares','PagesController@registro_de_particulares');
+Route::get('registro/empresas','PagesController@registro_de_empresas'); */
 
 Route::get('/muestras',function(){
     return view('muestra');

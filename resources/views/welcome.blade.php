@@ -63,7 +63,8 @@
             <div class="content">
                 <div class="links">
                     <a href="http://proyectoduoc.test/">Inicio</a>
-                    <a href="http://proyectoduoc.test/login">Clientes</a>
+                    <a href="http://proyectoduoc.test/muestras">Ingreso de Muestras</a>
+                    <a href="http://proyectoduoc.test/login">Ingreso Clientes</a>
                     <a href="http://proyectoduoc.test/loginE">Intranet</a>
                 </div>
             </div>
@@ -76,7 +77,7 @@
   <div class="card-body">
     <h5 class="card-title">Lorem Ipsum 1</h5>
     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#" class="btn btn-primary">Leer Mas</a>
   </div>
 </div>
 <div class="col-sm-3 " ></div>
@@ -85,7 +86,7 @@
   <div class="card-body">
     <h5 class="card-title">Lorem Ipsum 2</h5>
     <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#" class="btn btn-primary">Leer Mas</a>
   </div>
 </div>
 <div class="col-sm-3 " ></div>
@@ -94,7 +95,7 @@
   <div class="card-body">
     <h5 class="card-title">Lorem Ipsum 3</h5>
     <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#" class="btn btn-primary">Leer Mas</a>
   </div>
 </div>
     </div>

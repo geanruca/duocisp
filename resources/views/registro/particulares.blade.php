@@ -54,6 +54,17 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="dirección" class="col-md-4 col-form-label text-md-right">{{ __('Dirección') }}</label>
+                            <div class="col-md-6">
+                                <input id="dirección" type="text" class="form-control @error('dirección') is-invalid @enderror" dirección="dirección" value="{{ old('dirección') }}" required autocomplete="dirección" autofocus>
+                                @error('dirección')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="telefono" class="col-md-4 col-form-label text-md-right">{{ __('Telefono') }}</label>
                             <div class="col-md-6">
                                 <input id="telefono" type="telefono" class="form-control @error('telefono') is-invalid @enderror" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono">
@@ -64,14 +75,21 @@
                                 @enderror
                             </div>
                         </div>
+                        <p1>Tipo de análisis.</p1>
+                        <div class="col-md-6 col-form-label text-md-left">
+                        <input type="checkbox" name="procedimiento" value="micotoxinas">MicroToxinas</br>
+                        <input type="checkbox" name="procedimiento" value="metalespesados">Metales Pesados</br>
+                        <input type="checkbox" name="procedimiento" value="plaguicidas">Plaguicidas Prohibidos</br>
+                        <input type="checkbox" name="procedimiento" value="marea roja">Marea Roja</br>
+                        <input type="checkbox" name="procedimiento" value="bacterias">Bacterias Nocivas</br>
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Registrar') }}
+                                    {{ __('Ingresar Muestra') }}
                                 </button>
                             </div>
                         </div>
-                      
                     </form>
                 </div>
             </div>

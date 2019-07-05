@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre Empresa') }}</label>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                 @error('name')
@@ -43,10 +43,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Dirección Empresa') }}</label>
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                @error('password')
+                                <input id="direccion" type="text" class="form-control @error('direccion') is-invalid @enderror" direccion="direccion" value="{{ old('direccion') }}" required autocomplete="codigo" autofocus>
+                                @error('direccion')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -54,10 +54,43 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Dirección') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre Contacto') }}</label>
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="rut" class="col-md-4 col-form-label text-md-right">{{ __('Rut Contacto') }}</label>
+                            <div class="col-md-6">
+                                <input id="rut" type="text" class="form-control @error('rut') is-invalid @enderror" rut="rut" value="{{ old('rut') }}" required autocomplete="codigo" autofocus>
+                                @error('rut')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="direccion" class="col-md-4 col-form-label text-md-right">{{ __('Dirección Contacto') }}</label>
                             <div class="col-md-6">
                                 <input id="direccion" type="text" class="form-control @error('direccion') is-invalid @enderror" direccion="direccion" value="{{ old('direccion') }}" required autocomplete="codigo" autofocus>
                                 @error('direccion')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -86,14 +119,21 @@
                                 @enderror
                             </div>
                         </div>
+                        <p1>Tipo de análisis.</p1>
+                        <div class="col-md-6 col-form-label text-md-left">
+                        <input type="checkbox" name="procedimiento" value="micotoxinas">MicroToxinas</br>
+                        <input type="checkbox" name="procedimiento" value="metalespesados">Metales Pesados</br>
+                        <input type="checkbox" name="procedimiento" value="plaguicidas">Plaguicidas Prohibidos</br>
+                        <input type="checkbox" name="procedimiento" value="marea roja">Marea Roja</br>
+                        <input type="checkbox" name="procedimiento" value="bacterias">Bacterias Nocivas</br>
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Registrar') }}
+                                    {{ __('Ingresar Muestra') }}
                                 </button>
                             </div>
                         </div>
-                      
                     </form>
                 </div>
             </div>
