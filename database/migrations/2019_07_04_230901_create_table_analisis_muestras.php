@@ -24,6 +24,8 @@ class CreateTableAnalisisMuestras extends Migration
             $table->foreign('id_particular')->references('id')->on('particular');
             $table->string('rut_empleado')->nullable();
             $table->foreign('rut_empleado')->references('rut')->on('empleado');
+            
+            $table->timestamps();
         });
     }
 

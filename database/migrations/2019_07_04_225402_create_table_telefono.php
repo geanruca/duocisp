@@ -18,6 +18,7 @@ class CreateTableTelefono extends Migration
             $table->string('numero')->nullable();
             $table->unsignedBigInteger('id_particular')->nullable();
             $table->foreign('id_particular')->references('id')->on('particular');
+            $table->timestamps();
         });
     }
 

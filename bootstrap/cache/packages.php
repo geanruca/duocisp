@@ -13,6 +13,17 @@
       0 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     ),
   ),
+  'freshwork/chilean-bundle' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Freshwork\\ChileanBundle\\Laravel\\ChileanBundleServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Rut' => 'Freshwork\\ChileanBundle\\Facades\\Rut',
+    ),
+  ),
   'laravel/tinker' => 
   array (
     'providers' => 

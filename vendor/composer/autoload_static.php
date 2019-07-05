@@ -107,6 +107,7 @@ class ComposerStaticInit9e798480098c157b6e5539dc2247dd39
         ),
         'F' => 
         array (
+            'Freshwork\\ChileanBundle\\' => 24,
             'Fideloper\\Proxy\\' => 16,
             'Faker\\' => 6,
         ),
@@ -308,6 +309,10 @@ class ComposerStaticInit9e798480098c157b6e5539dc2247dd39
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'Freshwork\\ChileanBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/freshwork/chilean-bundle/src',
+        ),
         'Fideloper\\Proxy\\' => 
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
@@ -380,15 +385,25 @@ class ComposerStaticInit9e798480098c157b6e5539dc2247dd39
     );
 
     public static $classMap = array (
+        'App\\Analisis_muestras' => __DIR__ . '/../..' . '/app/Analisis_muestras.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Contacto' => __DIR__ . '/../..' . '/app/Contacto.php',
+        'App\\Empleado' => __DIR__ . '/../..' . '/app/Empleado.php',
+        'App\\Empresa' => __DIR__ . '/../..' . '/app/Empresa.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AnalisisMuestrasController' => __DIR__ . '/../..' . '/app/Http/Controllers/AnalisisMuestrasController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\ContactoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContactoController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\EmpleadoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpleadoController.php',
+        'App\\Http\\Controllers\\EmpresaController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpresaController.php',
+        'App\\Http\\Controllers\\ParticularController' => __DIR__ . '/../..' . '/app/Http/Controllers/ParticularController.php',
+        'App\\Http\\Controllers\\ResultadoAnalisisController' => __DIR__ . '/../..' . '/app/Http/Controllers/ResultadoAnalisisController.php',
+        'App\\Http\\Controllers\\TelefonoController' => __DIR__ . '/../..' . '/app/Http/Controllers/TelefonoController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -397,12 +412,14 @@ class ComposerStaticInit9e798480098c157b6e5539dc2247dd39
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Particular' => __DIR__ . '/../..' . '/app/Particular.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\Resultado_analisis' => __DIR__ . '/../..' . '/app/Resultado_analisis.php',
+        'App\\Telefono' => __DIR__ . '/../..' . '/app/Telefono.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
@@ -1009,6 +1026,11 @@ class ComposerStaticInit9e798480098c157b6e5539dc2247dd39
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/ValidGenerator.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
+        'Freshwork\\ChileanBundle\\Exceptions\\InvalidFormatException' => __DIR__ . '/..' . '/freshwork/chilean-bundle/src/Exceptions/InvalidFormatException.php',
+        'Freshwork\\ChileanBundle\\Facades\\Rut' => __DIR__ . '/..' . '/freshwork/chilean-bundle/src/Facades/Rut.php',
+        'Freshwork\\ChileanBundle\\Laravel\\ChileanBundleServiceProvider' => __DIR__ . '/..' . '/freshwork/chilean-bundle/src/Laravel/ChileanBundleServiceProvider.php',
+        'Freshwork\\ChileanBundle\\Laravel\\Facades\\Rut' => __DIR__ . '/..' . '/freshwork/chilean-bundle/src/Laravel/Facades/Rut.php',
+        'Freshwork\\ChileanBundle\\Rut' => __DIR__ . '/..' . '/freshwork/chilean-bundle/src/Rut.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
