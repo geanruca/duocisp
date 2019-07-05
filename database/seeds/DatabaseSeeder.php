@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Tipo_analisis;
+use App\Tipos_analisis;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         // factory(App\Tipo_analisis::class, 1)->create();
         $tipos =['micotoxinas','metales pesados','plaguicidas','marea roja','bacterias nocivas'];
         foreach($tipos as $t){
-            Tipo_analisis::insert([
+            Tipos_analisis::insert([
                 'nombre'=>$t
             ]);
         }

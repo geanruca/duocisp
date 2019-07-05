@@ -10,7 +10,7 @@ class AnalisisMuestrasController extends Controller
     
     public function index()
     {
-        //
+        
     }
 
 

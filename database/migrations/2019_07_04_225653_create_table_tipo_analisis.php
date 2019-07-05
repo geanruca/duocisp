@@ -13,7 +13,7 @@ class CreateTableTipoAnalisis extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_analisis', function (Blueprint $table) {
+        Schema::create('tipos_analisis', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre')->nullable();
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateTableTipoAnalisis extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_analisis');
+        Schema::dropIfExists('tipos_analisis');
     }
 }

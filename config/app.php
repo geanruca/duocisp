@@ -85,6 +85,7 @@ return [
          * Package Service Providers...
          */
         Freshwork\ChileanBundle\Laravel\ChileanBundleServiceProvider::class,
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
         /*
          * Application Service Providers...
          */

@@ -98,6 +98,7 @@ class ComposerStaticInit9e798480098c157b6e5539dc2247dd39
         ),
         'J' => 
         array (
+            'JeroenNoten\\LaravelAdminLte\\' => 28,
             'JakubOnderka\\PhpConsoleHighlighter\\' => 35,
             'JakubOnderka\\PhpConsoleColor\\' => 29,
         ),
@@ -297,6 +298,10 @@ class ComposerStaticInit9e798480098c157b6e5539dc2247dd39
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
         ),
+        'JeroenNoten\\LaravelAdminLte\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src',
+        ),
         'JakubOnderka\\PhpConsoleHighlighter\\' => 
         array (
             0 => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src',
@@ -401,9 +406,11 @@ class ComposerStaticInit9e798480098c157b6e5539dc2247dd39
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EmpleadoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpleadoController.php',
         'App\\Http\\Controllers\\EmpresaController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpresaController.php',
+        'App\\Http\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PagesController.php',
         'App\\Http\\Controllers\\ParticularController' => __DIR__ . '/../..' . '/app/Http/Controllers/ParticularController.php',
         'App\\Http\\Controllers\\ResultadoAnalisisController' => __DIR__ . '/../..' . '/app/Http/Controllers/ResultadoAnalisisController.php',
         'App\\Http\\Controllers\\TelefonoController' => __DIR__ . '/../..' . '/app/Http/Controllers/TelefonoController.php',
+        'App\\Http\\Controllers\\TipoAnalisisController' => __DIR__ . '/../..' . '/app/Http/Controllers/TipoAnalisisController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -420,6 +427,7 @@ class ComposerStaticInit9e798480098c157b6e5539dc2247dd39
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Resultado_analisis' => __DIR__ . '/../..' . '/app/Resultado_analisis.php',
         'App\\Telefono' => __DIR__ . '/../..' . '/app/Telefono.php',
+        'App\\Tipo_analisis' => __DIR__ . '/../..' . '/app/Tipo_analisis.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
@@ -1929,6 +1937,20 @@ class ComposerStaticInit9e798480098c157b6e5539dc2247dd39
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/Highlighter.php',
+        'JeroenNoten\\LaravelAdminLte\\AdminLte' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/AdminLte.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\AdminLteMakeCommand' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/AdminLteMakeCommand.php',
+        'JeroenNoten\\LaravelAdminLte\\Console\\MakeAdminLteCommand' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Console/MakeAdminLteCommand.php',
+        'JeroenNoten\\LaravelAdminLte\\Events\\BuildingMenu' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Events/BuildingMenu.php',
+        'JeroenNoten\\LaravelAdminLte\\Http\\ViewComposers\\AdminLteComposer' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Http/ViewComposers/AdminLteComposer.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\ActiveChecker' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/ActiveChecker.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Builder' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Builder.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\ActiveFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/ActiveFilter.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\ClassesFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/ClassesFilter.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\FilterInterface' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/FilterInterface.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\GateFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/GateFilter.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\HrefFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/HrefFilter.php',
+        'JeroenNoten\\LaravelAdminLte\\Menu\\Filters\\SubmenuFilter' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/Menu/Filters/SubmenuFilter.php',
+        'JeroenNoten\\LaravelAdminLte\\ServiceProvider' => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src/ServiceProvider.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Laravel\\Tinker\\ClassAliasAutoloader' => __DIR__ . '/..' . '/laravel/tinker/src/ClassAliasAutoloader.php',
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',

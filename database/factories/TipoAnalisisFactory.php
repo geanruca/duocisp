@@ -5,7 +5,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(Tipo_analisis::class, function (Faker $faker) {
+$factory->define(Tipos_analisis::class, function (Faker $faker) {
     
     // return [
     //     'nombre'         => $faker->randomElement($tipos),
